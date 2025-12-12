@@ -1,16 +1,94 @@
-# React + Vite
+# Image Uploader - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React application for uploading and previewing images with drag-and-drop functionality.
 
-Currently, two official plugins are available:
+## Features
+- **Drag and Drop Interface**: Intuitive file upload area with visual feedback  
+- **File Validation**: Supports JPG and PNG formats up to 2MB  
+- **Real-time Preview**: View uploaded images immediately  
+- **Download Option**: Direct download link for uploaded images  
+- **Status Notifications**: Visual feedback for upload success, errors and loading states  
+- **Responsive Design**: Works on desktop and mobile devices  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
+- Node.js (v14 or higher)  
+- npm or yarn package manager  
+- Backend API server  
 
-## React Compiler
+## Installation
+1. Clone the repository or copy the project files  
+2. Install dependencies:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+3. Create a `.env` file in the root directory:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```env
+VITE_BACKEND_API_URL=http://localhost:3000/api/upload
+```
+
+## Environment Variables
+- `VITE_BACKEND_API_URL`: The URL of your backend API endpoint for image uploads  
+
+Example:
+
+```env
+VITE_BACKEND_API_URL=http://localhost:3000/api/upload
+```
+
+## Available Scripts
+- `npm run dev` - Starts the development server with Vite  
+- `npm run build` - Builds the application for production  
+- `npm run preview` - Previews the production build locally  
+
+## Backend Setup
+This application requires a backend API that accepts:
+
+- `POST` requests to the specified endpoint  
+- `multipart/form-data` content type  
+- An `image` field containing the file  
+
+**Example backend response:**
+
+```json
+{
+  "url": "https://example.com/uploads/filename.jpg"
+}
+```
+
+## Dependencies
+
+**Main Dependencies:**
+- React: UI library  
+- react-dropzone: Drag-and-drop file upload component  
+- axios: HTTP client for API requests  
+- lucide-react: Icon library for UI elements  
+
+**Development Dependencies:**
+- Vite: Build tool and development server  
+- TypeScript (optional): Type safety  
+- ESLint: Code linting  
+
+
+## Usage
+1. Start the development server:
+
+```bash
+npm run dev
+```
+
+2. Open your browser at `http://localhost:5173`  
+3. Drag and drop an image file (JPG or PNG, max 2MB) into the upload area  
+4. Or click the upload area to browse for files  
+5. View the uploaded image in the preview section  
+6. Download the image using the download button  
+
+## File Restrictions
+- Accepted Formats: JPG, JPEG, PNG  
+- Maximum File Size: 2MB  
+- Maximum Files: 1 at a time  
+
+
+

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { uploadImage, uploadMiddleware } = require('../controllers/uploadController');
+const { uploadImage } = require('../controllers/uploadController');
+const { uploadMiddleware } = require('../middleware/uploads');
 
 router.post('/upload', uploadMiddleware, uploadImage);
 
